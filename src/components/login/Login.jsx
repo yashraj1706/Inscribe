@@ -14,7 +14,7 @@ function Login() {
   const [error, seterror] = useState("");
   const { register, handleSubmit } = useForm(); //handle submit is a method in which we pass our own method in this case login, then we get the functionality(wee use it in onSubmit attribute in the form tag)
 
-  const login = async (data) => {
+  const loginfn = async (data) => {
     seterror("");
     try {
       const session = await authServiceObj.login(data);
@@ -24,11 +24,12 @@ function Login() {
         error: "Error signing in"
       })
       if (session) {
+        console.log(session)
         const userData = await authServiceObj.getCurrentUser();
-        if(userData)      dispatch(StoreLogin(userData));
-
-        navigate("/");
-        
+        if(userData) {
+          dispatch(StoreLogin(userData));
+          navigate("/");
+        }  
         // link use nahi kara as link pr click karna padta, isse apne aap user chala jayega home par dont make the name same as handleSubmit
       }
     } catch (error) {
@@ -62,7 +63,7 @@ function Login() {
         </p>
         {error && <p className="text-red-500  mt-8 text-center">{error}</p>}
 
-        <form onSubmit={handleSubmit(login)} className="mt-8">
+        <form onSubmit={handleSubmit(loginfn)} className="mt-8">
           <div className="space-y-2">
             <Input
               label="Email: "

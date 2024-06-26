@@ -4,6 +4,7 @@ import databaseServiceObj from "../appwrite/conf";
 import { BasicBtn, Container } from "../components";
 import parse from "html-react-parser";
 import { useSelector } from "react-redux";
+import toast from "react-hot-toast";
 
 export default function Post() {
     const [post, setPost] = useState(null);
@@ -16,14 +17,18 @@ export default function Post() {
 
     useEffect(() => {
         if (slug) {
-            databaseServiceObj.getPost(slug).then((post) => {
+            toast.promise(databaseServiceObj.getPost(slug).then((post) => {
                 if (post){ 
                     console.log(post)
                     console.log(userData.$id)
                     console.log("Is Author value = " + isAuthor)
                     setPost(post);}
                 else navigate("/");
-            });
+            }).catch((error)=> console.log(error.message)),{
+                loading:"loading post",
+                success:"loaded post",
+                error:"error"
+            })
         } else navigate("/");
     }, [slug, navigate]);
 
