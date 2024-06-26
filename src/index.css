@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.gradient-button {
+    @apply text-white font-semibold py-2 px-4 rounded-lg relative overflow-hidden;
+    background: linear-gradient(45deg, purple, rgb(255, 137, 220), red);
+    background-size: 400%;
+    animation: gradientAnimation 5s infinite;
+  }
+  
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 25% 50%;
+    }
+    50% {
+      background-position: 75% 50%;
+    }
+    100% {
+      background-position: 25% 50%;
+    }
+  }
+
