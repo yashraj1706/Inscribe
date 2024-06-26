@@ -17,21 +17,23 @@ function Login() {
   const login = async (data) => {
     seterror("");
     try {
-      const session = authServiceObj.login(data);
-      await toast.promise(session, {
+      const session = await authServiceObj.login(data);
+      await toast.promise(authServiceObj.login(data), {
         loading: "Signing In...",
         success: "Successefully Signed In",
         error: "Error signing in"
       })
       if (session) {
         const userData = await authServiceObj.getCurrentUser();
-        dispatch(StoreLogin(userData));
+        if(userData)      dispatch(StoreLogin(userData));
+
         navigate("/");
+        
         // link use nahi kara as link pr click karna padta, isse apne aap user chala jayega home par dont make the name same as handleSubmit
       }
     } catch (error) {
       seterror(error.message);
-      toast.error("Error In Logging In")
+      toast.error("Error In Logging In:" +error.message)
     }
   };
 
