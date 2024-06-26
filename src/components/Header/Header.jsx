@@ -23,11 +23,11 @@ function Header() {
     <header className='py-3 shadow text-white bg-black'>
       <Container>
         <nav className='flex w-full'>
-          <div className='flex w-full md:order-none order-10 items-center justify-around mr-4'>
-            <Link className=' ' to='/'>
+          <div className='flex w-full  items-center justify-around mr-4'>
+            <Link className=' md:order-1 order-10' to='/'>
               <Logo  width='50px'/>
             </Link>
-            <ul className='flex items-center h-full gap-2 md:gap-5 ml-auto'>
+            <ul className='flex order-2 items-center h-full gap-0 md:gap-5 ml-auto'>
               {
                 navItems.map((item)=>
                 item.active?(
@@ -44,7 +44,7 @@ function Header() {
                 )
               }
               {authStatus && (
-                <li className='order-2 h-full flex items-center'>
+                <li className='order-3 h-full flex items-center mb-3 '>
                   <LogoutBtn/>
                 </li>)}
               {/*

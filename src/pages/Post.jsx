@@ -30,7 +30,7 @@ export default function Post() {
                 error:"error"
             })
         } else navigate("/");
-    }, [slug, navigate]);
+    }, [slug, navigate,setPost]);
 
     const deletePost = () => {
         databaseServiceObj.deleteDocument(post.$id).then((status) => {
