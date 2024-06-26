@@ -1,19 +1,23 @@
 import React,{useState,useEffect} from 'react'
 import databaseServiceObj from '../appwrite/conf'
-import { Container,CustomCard, NoPosts } from '../components'
+import { Container,CustomCard, Loader, NoPosts } from '../components'
 import toast from 'react-hot-toast'
 
 
 
 function AllPosts() {
     const [posts,setPosts]=useState([])
+    const [loading,setloading]=useState(true)
     useEffect(()=>{},[])
     databaseServiceObj.getAllActivePosts([]).then((posts)=>{
         if(posts){
             setPosts(posts.documents)
+            setloading(false)
         }
     })
-    
+    if(loading===true){
+        return <Loader />
+    }
     if(posts.length===0){
         return (
         <>

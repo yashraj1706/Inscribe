@@ -14,6 +14,7 @@ import CustomCard from './card/CustomCard'
 import AuthLayout from './AuthLayout'
 import NoPosts from "./NoPosts/NoPosts";
 import UnauthenticatedLanding from "./UnauthenticatedLanding/UnauthenticatedLanding";
+import Loader from "./Loader/Loader";
 export {
     Header,
     Footer,
@@ -29,5 +30,7 @@ export {
     PostForm,
     CustomCard,
     NoPosts,
-    UnauthenticatedLanding
+    UnauthenticatedLanding,
+    Loader
+
 }

@@ -25,9 +25,9 @@ export default function Post() {
                     setPost(post);}
                 else navigate("/");
             }).catch((error)=> console.log(error.message)),{
-                loading:"loading post",
-                success:"loaded post",
-                error:"error"
+                loading:"Loading Post...",
+                success:"",
+                error:"Error Loading Poast"
             })
         } else navigate("/");
     }, [slug, navigate,setPost]);
@@ -35,7 +35,11 @@ export default function Post() {
     const deletePost = () => {
         databaseServiceObj.deleteDocument(post.$id).then((status) => {
             if (status) {
-                databaseServiceObj.deleteFile(post.featuredImage);
+                toast.promise(databaseServiceObj.deleteFile(post.featuredImage),{
+                    loading:"Deleting Post...",
+                    success:"Post Deleted",
+                    error:"Error Deleting Poast"
+                })
                 navigate("/");
             }
         });
@@ -77,5 +81,5 @@ export default function Post() {
                 </div>
             </Container>
         </div>
-    ) : null;
+    ) : <div className="min-h-screen"></div>;
 }

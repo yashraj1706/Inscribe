@@ -16,8 +16,8 @@ function SignUp() {
     const signUp=async (data)=>{
         setError("")
         try {
-            const usersession= authServiceObj.createAccount(data);
-            await toast.promise(usersession, {
+            const usersession= await authServiceObj.createAccount(data);
+            toast.promise(authServiceObj.createAccount(data), {
                 loading: "Signing In...",
                 success: "Successfully Signed In",
                 error: "Error signing up"

@@ -11,14 +11,16 @@ function LogoutBtn() {
     const dispatch=useDispatch()
     const navigate=useNavigate()
     const handleLogout=async()=>{
-        const logoutFn=authServiceObj.logout()
-        await toast.promise(logoutFn,{
+        
+        await toast.promise(authServiceObj.logout().then(()=>{
+          dispatch(StoreLogout())
+          navigate("/login")
+        }).catch((e)=>console.log(e.message)),{
           loading: "Logging Out...",
           success: "Successfully logged out",
           error: "Error logging out"
         })
-        dispatch(StoreLogout())
-        navigate("/")
+        
         
     }
   return (

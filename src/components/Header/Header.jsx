@@ -20,10 +20,10 @@ function Header() {
     
   ]
   return (
-    <header className='py-3 shadow text-white bg-black'>
+    <header className='py-3 shadow sticky top-0 z-[20] text-white bg-black'>
       <Container>
         <nav className='flex w-full'>
-          <div className='flex w-full  items-center justify-around mr-4'>
+          <div className='flex w-full  items-center justify-center md:justify-around mr-4'>
             <Link className=' md:order-1 order-10' to='/'>
               <Logo  width='50px'/>
             </Link>
@@ -31,7 +31,7 @@ function Header() {
               {
                 navItems.map((item)=>
                 item.active?(
-                  <li key={item.name}   className='h-full flex items-center'>
+                  <li key={item.name}   className='h-full md:justify-normal justify-center flex items-center'>
                     <button 
                     onClick={()=>navigate(item.slug)}
                     className={`relative px-4 py-2 transition-colors duration-300 ${

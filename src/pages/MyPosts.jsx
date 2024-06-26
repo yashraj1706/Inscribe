@@ -2,10 +2,11 @@
 import React, { useState,useEffect } from 'react'
 import databaseServiceObj from '../appwrite/conf'
 import { useSelector } from 'react-redux'
-import {CustomCard,Container, NoPosts} from '../components'
+import {CustomCard,Container, NoPosts, Loader} from '../components'
 
 function MyPosts() {
   const [posts, setposts] = useState([])
+  const [loader,setloader]=useState(true)
   const userId = useSelector((state) => state.userData?.$id);
    // Log the state to debug
   // Directly access $id from state
@@ -17,12 +18,14 @@ function MyPosts() {
           if (postss) {
             console.log(postss);
             setposts(postss.documents); // Assuming the posts are in the documents property
+            setloader(false)
           }
         })
         .catch((error) => console.log("Response BAD:::::::::::" + error));
     }
     
   }, [userId])
+  if(loader) return <Loader/>
   
     if(posts.length===0){
       return <NoPosts/>
