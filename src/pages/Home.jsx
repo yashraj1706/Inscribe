@@ -25,16 +25,22 @@ function Home() {
                 }
                 setUserLoggedIn(stauts)
                 console.log("Logged in???????"+stauts)
-            }).catch((e)=>{toast.error(e)})
-        }
+            }).catch((e)=>{toast.error(e)
+                setloading(false)
+            })
+        }else setloading(false)
         
         
         authServiceObj.getCurrentUser().then((user)=>{
             if(user){
                 setuserData(user)
+                setloading(false)
                 console.log("userrrrrrrrrrrrrrrrrrrrrr:::::::::"+userData)
             }
-        })
+        }
+    ).catch((e)=>{
+        console.log(e)
+    })
     },[])
     if(loading===true) return <Loader/>
 
@@ -45,7 +51,7 @@ function Home() {
     else if (posts.length === 0) {
         return <NoPosts {...userData} />;
     }
-    
+
     else{
         return (
             <div className='w-full bg-gray-900 py-8'>

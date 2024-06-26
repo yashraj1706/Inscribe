@@ -22,7 +22,7 @@ function MyPosts() {
           }
         })
         .catch((error) => console.log("Response BAD:::::::::::" + error));
-    }
+    }else setloader(false)
     
   }, [userId])
   if(loader) return <Loader/>
