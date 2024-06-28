@@ -35,6 +35,7 @@ function Login() {
     } catch (error) {
       seterror(error.message);
       toast.error("Error In Logging In:" +error.message)
+      navigate("/")
     }
   };
 

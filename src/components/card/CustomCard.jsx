@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import databaseServiceObj from '../../appwrite/conf'
 import { Link } from 'react-router-dom'
 import Card from '@mui/material/Card';
@@ -9,6 +9,7 @@ import { CardActionArea } from '@mui/material';
 
 
 function CustomCard({$id,title,featuredImage}) {
+  
   return (
     <Link to={`/post/${$id}`}>
     <div className=' bg-black rounded-xl shadow-lg shadow-gray-700 hover:bg-gray-800 transition duration-300' >
@@ -17,7 +18,7 @@ function CustomCard({$id,title,featuredImage}) {
             <CardMedia sx={{maxHeight:165}}
               component="img"
               height="140"
-              image={databaseServiceObj.getFilePreview(featuredImage)}
+              image={databaseServiceObj.getFilePreview(featuredImage).href}
               alt={title}
             />
             <CardContent sx={{backgroundColor:"black",background:"transparent",color:"white"}}>

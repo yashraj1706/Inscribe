@@ -17,18 +17,14 @@ export default function Post() {
 
     useEffect(() => {
         if (slug) {
-            toast.promise(databaseServiceObj.getPost(slug).then((post) => {
+            databaseServiceObj.getPost(slug).then((post) => {
                 if (post){ 
                     console.log(post)
-                    console.log(userData.$id)
+                    console.log(userData)
                     console.log("Is Author value = " + isAuthor)
                     setPost(post);}
                 else navigate("/");
-            }).catch((error)=> console.log(error.message)),{
-                loading:"Loading Post...",
-                success:"",
-                error:"Error Loading Poast"
-            })
+            }).catch((error)=> console.log(error.message))
         } else navigate("/");
     }, [slug, navigate,setPost]);
 

@@ -20,28 +20,33 @@ function Home() {
         if(stauts){
             databaseServiceObj.getAllActivePosts([]).then((posts)=>{
                 if(posts){
+                    console.log(posts.documents)
                     setPosts(posts.documents);
                     setloading(false);
                 }
                 setUserLoggedIn(stauts)
                 console.log("Logged in???????"+stauts)
-            }).catch((e)=>{toast.error(e)
+            }).catch((e)=>{console.log(e)
                 setloading(false)
             })
-        }else setloading(false)
+        }
+        else setloading(false)
         
         
         authServiceObj.getCurrentUser().then((user)=>{
             if(user){
+                console.log( user)
                 setuserData(user)
                 setloading(false)
-                console.log("userrrrrrrrrrrrrrrrrrrrrr:::::::::"+userData)
             }
         }
     ).catch((e)=>{
         console.log(e)
     })
+    
     },[])
+
+    
     if(loading===true) return <Loader/>
 
     if (!userData) {
