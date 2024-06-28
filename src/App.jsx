@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import authServiceObj from './appwrite/auth'
 import {login,logout} from './store/authSlice'
 import { Outlet } from 'react-router-dom'
@@ -11,11 +11,13 @@ import { Toaster } from 'react-hot-toast'
 function App() {
   const [loading, setloading] = useState(true)
   const dispatch=useDispatch()
+  const status=useSelector(state=>state.userData)
   useEffect(()=>{
+    console.log("dgasssssssssssssssssssssssssssssssssssssssssssssssssssss::",status)
     authServiceObj.getCurrentUser()
     .then((userData)=>{
-      if(userData){
-        dispatch(login({userData}))
+      if(userData && !status){
+        dispatch(login(userData))
       }
       else{
         dispatch(logout())
