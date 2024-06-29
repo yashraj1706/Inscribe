@@ -9,6 +9,10 @@ import ErrorComponent from "../Error/ErrorComponent";
 import toast from "react-hot-toast";
 
 function PostForm({ post }) {
+
+    // Watch form values
+   
+
   const { handleSubmit, register, setValue, getValues, watch, control } =
     useForm({
       defaultValues: {
@@ -18,7 +22,8 @@ function PostForm({ post }) {
         content: post?.content || "",
       },
     });
-
+    const watchedValues = watch(); // Added this line
+    const isFormValid = watchedValues.title && watchedValues.slug && watchedValues.content && (post || watchedValues.featuredImage?.length > 0) && watchedValues.status; // Added this line
   const navigate = useNavigate();
   const userData = useSelector((state) => state.userData);
   const submit = async (data) => {
@@ -145,7 +150,8 @@ function PostForm({ post }) {
         <BasicBtn
           type="submit"
           bgColor={post ? "bg-green-500" : undefined}
-          className="bg-cyan-500 shadow-cyan-900 text-black font-semibold rounded-lg shadow-md hover:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-opacity-75 w-full"
+          disabled={!isFormValid}
+          className={`font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-opacity-75 w-full ${isFormValid ? "gradient-button focus:ring-cyan-400 text-black" : "bg-gray-400 cursor-not-allowed text-gray-700"}`}
         >
           {post ? "Update" : "Submit"}
         </BasicBtn>

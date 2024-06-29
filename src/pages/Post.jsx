@@ -44,7 +44,7 @@ export default function Post() {
     return post ? (
         <div className="py-8 min-h-screen bg-gray-900">
             <Container>
-                <div className="flex md:flex-row flex-col w-full justify-between">
+                <div className="flex gap-1 md:flex-row flex-col w-full justify-between">
                         <div className="md:max-w-[calc(100vw/2)] md:min-w-[calc(100vw/3)] w-full flex h-fit justify-center mb relative border rounded-xl p-2">
                             <img
                                 src={databaseServiceObj.getFilePreview(post.featuredImage)}
@@ -65,8 +65,8 @@ export default function Post() {
                                 </div>
                             )}
                         </div>
-                        <div className="flex md:max-w-[calc(100vw/2)] md:min-w-[calc(100vw/2)] flex-col gap-4  items-center align-middle">
-                            <div className="w-full mb-6">
+                        <div className="flex border p-2 border-white rounded-xl md:max-w-[calc(100vw/2)] md:min-w-[calc(100vw/2)] flex-col gap-4  items-center align-middle">
+                            <div className="w-full  mb-6">
                             <h1 className="text-3xl font text-white font-bold">{post.title}</h1>
                             </div>
                             <hr className="border-2 w-11/12 border-white rounded-full"/>

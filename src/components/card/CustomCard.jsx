@@ -22,7 +22,7 @@ function CustomCard({$id,title,featuredImage}) {
               alt={title}
             />
             <CardContent sx={{backgroundColor:"black",background:"transparent",color:"white"}}>
-              <Typography gutterBottom variant="h5" component="div">
+              <Typography gutterBottom variant="" component="div">
                 {title}
               </Typography>
               

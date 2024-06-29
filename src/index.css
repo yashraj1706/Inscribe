@@ -5,7 +5,7 @@
 .gradient-button {
     @apply text-white font-semibold py-2 px-4 rounded-lg relative overflow-hidden;
     background: linear-gradient(45deg, purple, rgb(255, 137, 220), red);
-    background-size: 400%;
+    background-size: 300%;
     animation: gradientAnimation 5s infinite;
   }
   
