@@ -63,7 +63,7 @@ function Home() {
                 <Container>
                     <div className='flex lg:justify-normal justify-center flex-wrap'>
                         {posts.map((post)=>(
-                                <div key={post.$id} className='p-2 md:max-w-full max-w-[calc(100vw/1.5)] md:min-w-fit min-w-[calc(100vw/1.5)] md:w-1/4 sm:w-full'>
+                                <div key={post.$id} className='p-2 md:max-w-full k max-w-[calc(100vw/1.5)] md:min-w-fit min-w-[calc(100vw/1.5)] md:w-1/4 sm:w-full'>
                                     <CustomCard {...post}/>
                                 </div>
                         ))}
