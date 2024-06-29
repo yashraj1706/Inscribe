@@ -12,7 +12,7 @@ function CustomCard({$id,title,featuredImage}) {
   
   return (
     <Link to={`/post/${$id}`}>
-    <div className=' bg-black rounded-xl shadow-lg shadow-gray-700 hover:bg-gray-800 transition duration-300' >
+    <div className=' bg-black  rounded-xl shadow-lg shadow-gray-700 hover:bg-gray-800 transition duration-300' >
         <Card sx={{ maxWidth: 345,borderRadius:2,border:1,borderColor:"white",background:"transparent"}}>
           <CardActionArea sx={{background:"transparent"}}>
             <CardMedia sx={{maxHeight:165}}
