@@ -12,6 +12,12 @@
   margin-bottom: 10px;
 }
 
+.post-content-images a{
+  color:blue;
+  text-decoration: underline;
+}
+
+
 .post-h-tags h1 {
   font-size: 2em; /* Example: 32px */
   font-weight: 700; /* Example: bold */
