@@ -9,7 +9,7 @@ function AllPosts() {
     const [posts,setPosts]=useState([])
     const [loading,setloading]=useState(true)
     useEffect(()=>{
-        databaseServiceObj.getAllActivePosts([]).then((posts)=>{
+        databaseServiceObj.getAllActivePosts().then((posts)=>{
             if(posts){
                 setPosts(posts.documents)
                 setloading(false)

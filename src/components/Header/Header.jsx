@@ -25,7 +25,7 @@ function Header() {
         <nav className='flex w-full'>
           <div className='flex w-full  items-center justify-center md:justify-around mr-4'>
             <Link className='hidden md:inline-block md:order-1 order-10' to='/'>
-              <Logo className='hidden md:inline-block' width='50px'/>
+              <Logo className='hidden rounded-full md:inline-block' width='75px'/>
             </Link>
             <ul className='flex order-2 items-center md:justify-normal md:w-fit w-full justify-center h-full gap-0 md:gap-5 ml-auto'>
               {

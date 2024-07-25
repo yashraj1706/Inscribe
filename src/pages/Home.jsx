@@ -18,7 +18,7 @@ function Home() {
     useEffect(()=>{
         
         if(stauts){
-            databaseServiceObj.getAllActivePosts([]).then((posts)=>{
+            databaseServiceObj.getAllActivePosts().then((posts)=>{
                 if(posts){
                     console.log(posts.documents)
                     setPosts(posts.documents);
