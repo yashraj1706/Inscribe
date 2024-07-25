@@ -1,6 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Metrophobic&family=Raleway:ital,wght@0,100..900;1,100..900&family=Shadows+Into+Light&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.post-content-images>p>img{
+  border-radius: 5%;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.post-h-tags h1 {
+  font-size: 2em; /* Example: 32px */
+  font-weight: 700; /* Example: bold */
+}
+
+.post-h-tags h2 {
+  font-size: 1.75em; /* Example: 28px */
+  font-weight: 600; /* Example: semi-bold */
+}
+
+.post-h-tags h3 {
+  font-size: 1.5em; /* Example: 24px */
+  font-weight: 500; /* Example: medium */
+}
+
+.post-h-tags h4 {
+  font-size: 1.25em; /* Example: 20px */
+  font-weight: 400; /* Example: normal */
+}
+
+.post-h-tags h5 {
+  font-size: 1em; /* Example: 16px */
+  font-weight: 300; /* Example: light */
+}
+
+.post-h-tags h6 {
+  font-size: 0.875em; /* Example: 14px */
+  font-weight: 200; /* Example: extra-light */
+}
+
+
 
 .gradient-button {
     @apply text-white font-semibold py-2 px-4 rounded-lg relative overflow-hidden;

@@ -4,6 +4,7 @@ import { BasicBtn, Input, RTE, SelectBtn } from "..";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import databaseServiceObj from "../../appwrite/conf";
+import toast from "react-hot-toast";
 
 export default function PostForm({ post }) {
     const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
@@ -32,7 +33,10 @@ export default function PostForm({ post }) {
             });
 
             if (dbPost) {
-                navigate(`/post/${dbPost.$id}`);
+                navigate(`/post/${dbPost.$id}`)
+            }
+            else{
+              toast.error(dbPost)
             }
         } else {
             const file = await databaseServiceObj.uploadFile(data.image[0]);
@@ -43,9 +47,10 @@ export default function PostForm({ post }) {
                 const dbPost = await databaseServiceObj.createPost({ ...data, userId: userData.$id });
 
                 if (dbPost) {
-                    navigate(`/post/${dbPost.$id}`);
+                    navigate(`/post/${dbPost.$id}`)
+                    
                 }
-            }
+              }       
         }
     };
 

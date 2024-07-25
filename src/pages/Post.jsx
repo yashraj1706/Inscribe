@@ -19,10 +19,8 @@ export default function Post() {
         if (slug) {
             databaseServiceObj.getPost(slug).then((post) => {
                 if (post){ 
-                    console.log(post)
-                    console.log(userData)
-                    console.log("Is Author value = " + isAuthor)
-                    setPost(post);}
+                    setPost(post);
+                }
                 else navigate("/");
             }).catch((error)=> console.log(error.message))
         } else navigate("/");
@@ -44,12 +42,15 @@ export default function Post() {
     return post ? (
         <div className="py-8 min-h-screen bg-gray-900">
             <Container>
-                <div className="flex gap-1 md:flex-row flex-col w-full justify-between">
-                        <div className="md:max-w-[calc(100vw/2)] md:min-w-[calc(100vw/3)] w-full flex h-fit justify-center mb relative border rounded-xl p-2">
+                <div className="flex gap-1 flex-col w-full justify-between">
+                        <h1 className="p-2 md:p-10 text-5xl text-white font-semibold"><u>{post.title}</u></h1>
+                        <div className="md:max-w-[calc(100vw/1.75)] mx-auto md:min-w-[calc(100vw/3)] w-full flex h-fit justify-center  relative  rounded-xl p-2">
+                            <div className="relative">
                             <img
+                            id="cover-image"
                                 src={databaseServiceObj.getFilePreview(post.featuredImage)}
                                 alt={post.title}
-                                className="rounded-xl h-fit object-cover "
+                                className="rounded-xl relative h-fit object-cover m-0 p-1 border-[1px]"
                             />
 
                             {isAuthor && (
@@ -64,16 +65,14 @@ export default function Post() {
                                     </BasicBtn>
                                 </div>
                             )}
+    
+                            </div>                            
                         </div>
-                        <div className="flex border p-2 border-white rounded-xl md:max-w-[calc(100vw/2)] md:min-w-[calc(100vw/2)] flex-col gap-4  items-center align-middle">
-                            <div className="w-full  mb-6">
-                            <h1 className="text-3xl font text-white font-bold">{post.title}</h1>
-                            </div>
-                            <hr className="border-2 w-11/12 border-white rounded-full"/>
-                            <div className="text-white browser-css">
-                                {parse(post.content)}
-                            </div>    
-                        </div>
+                        <div className="p-2 mt-5 md:px-64">
+                            <div className="text-white browser-css post-content-images post-h-tags">
+                                    {parse(post.content)}
+                            </div> 
+                        </div> 
                 </div>
             </Container>
         </div>
