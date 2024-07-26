@@ -16,6 +16,54 @@ table, th, td {
   border: 1px solid;
 }
 
+.white-bullets ul {
+  list-style-type: disc;
+}
+
+.white-bullets ol {
+  list-style-type: decimal;
+}
+
+.white-bullets ul::marker, .white-bullets ol::marker {
+  color: white;
+}
+
+.blog-title {
+  font-size: 2.5rem; /* Larger font size */
+  font-weight: bold; /* Bold text */
+  text-align: center; /* Center align */
+  position: relative; /* For positioning the underline */
+  margin-bottom: 1rem; /* Space below the title */
+}
+.exp-bg{
+  animation:expbg 4s linear infinite;
+  background-size: 400%;
+}
+@keyframes expbg{
+  0%{
+    background-position: bottom left;
+  }
+  50%{
+    background-position: top right;
+  }
+  100%{
+    background-position: bottom left;
+  }
+}
+
+
+.blog-title::after {
+  content: '';
+  display: block;
+  width: 50%; /* Underline width */
+  height: 4px;
+  background-color: #d8b6e3; /* Bright color for underline */
+  position: absolute;
+  bottom: -5px; /* Positioning */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .post-content-images a{
   color:blue;
   text-decoration: underline;

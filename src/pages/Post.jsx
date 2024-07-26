@@ -43,7 +43,7 @@ export default function Post() {
         <div className="py-8 min-h-screen bg-gray-900">
             <Container>
                 <div className="flex gap-1 flex-col w-full justify-between">
-                        <h1 className="p-2 md:p-10 text-5xl text-white font-semibold"><u>{post.title}</u></h1>
+                        <h1 className="p-2 md:px-64 blog-title exp-bg bg-clip-text text-transparent bg-gradient-to-br from-[#00ffe5] via-[#b798fe]  to-[#ff69e3]   ">{post.title}</h1>
                         <div className="md:max-w-[calc(100vw/1.75)] mx-auto md:min-w-[calc(100vw/3)] w-full flex h-fit justify-center  relative  rounded-xl p-2">
                             <div className="relative">
                             <img
@@ -69,7 +69,7 @@ export default function Post() {
                             </div>                            
                         </div>
                         <div className="p-2 mt-5 md:px-64">
-                            <div className="text-white browser-css post-content-images post-h-tags">
+                            <div className="text-white white-bullets browser-css post-content-images post-h-tags">
                                     {parse(post.content)}
                             </div> 
                         </div> 
