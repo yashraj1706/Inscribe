@@ -34,9 +34,9 @@ function MyPosts() {
     return (
       <div className='py-8 min-h-screen bg-gray-900 w-full'>
           <Container>
-              <div className='flex md:justify-normal justify-center flex-wrap'>
+              <div className='flex w-full md:justify-center md:gap-10 justify-center flex-wrap'>
                   {posts.map((post)=>(
-                      <div key={post.$id} className='p-2 md:max-w-full max-w-[calc(100vw/1.5)] md:w-1/4 sm:w-full'>
+                      <div key={post.$id} className='p-2 md:max-w-[calc(100vw/3)] k max-w-[calc(100vw/1.5)] md:min-w-[calc(100vw/4)] min-w-[calc(100vw/1.5)] md:w-fit sm:w-full'>
                           <CustomCard {...post}/>
                       </div>
                   ))}

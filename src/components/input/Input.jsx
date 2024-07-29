@@ -4,7 +4,6 @@ const Input=React.forwardRef(function Input({
     label,
     className='',
     type='text',
-    charsLimit,
     ...props
 },ref)
 {

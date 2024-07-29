@@ -69,6 +69,10 @@ table, th, td {
   text-decoration: underline;
 }
 
+.post-content-images iframe{
+  width:80%;
+  
+}
 
 .post-h-tags h1 {
   font-size: 2em; /* Example: 32px */
